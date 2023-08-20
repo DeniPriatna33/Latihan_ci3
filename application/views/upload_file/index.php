@@ -15,7 +15,7 @@
 						<thead>
 							<tr>
 								<th>No</th>
-								<th>Nama</th>
+								<th>Gambar</th>
 								<th>Jurusan</th>
 								<th>Action</th>
 							</tr>
@@ -54,10 +54,6 @@
 					<button type="submit" id="btn_upload" class="btn btn-success">Save</button>
 				</form>
 			</div>
-			<!-- <div class="modal-footer">
-				<button type="button" class="btn btn-success" onclick="btn_add_data()">Simpan</button>
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			</div> -->
 		</div>
 
 	</div>
@@ -73,29 +69,20 @@
 				<h4 class="modal-title">Edit Data</h4>
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
 			</div>
-			<form id="form_edit">
 				<div class="modal-body">
-					<div class="form-group">
-						<label for="nama">Nama</label>
-						<input type="hidden" name="id" class="form-control" id="id">
-						<input type="text" name="nama" class="form-control" id="nama">
-					</div>
-					<div class="form-group">
-						<label for="nama">Jurusan</label>
-						<select name="jurusan" id="jurusan" class="form-control">
-							<option value="TI">Teknik Informatika</option>
-							<option value="SI">Sistem Informasi</option>
-							<option value="TK">Teknik Komputer</option>
-							<option value="MI">Manajemen Informatika</option>
-						</select>
-					</div>
-
+					<form class="form-horizontal" id="submit_update">
+						<div class="form-group">
+							<label for="nama_file">Nama File</label>
+							<input type="file" name="nama_file_edit" id="nama_file_edit" class="form-control"></input>
+						</div>
+						<div class="form-group">
+							<label for="keterangan">Keterangan</label>
+							<textarea name="keterangan_edit" id="keterangan_edit" class="form-control" rows="5"></textarea>
+						</div>
+						<input type="hidden" name="id" id="id" class="form-control"></input>
+						<button type="submit" id="btn_update" class="btn btn-success">Save</button>
+					</form>
 				</div>
-				<div class="modal-footer">
-					<button type="submit" class="btn btn-success" onclick="btn_update_data()">Update</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</form>
 		</div>
 
 	</div>

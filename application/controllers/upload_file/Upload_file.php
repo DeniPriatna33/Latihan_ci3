@@ -31,15 +31,14 @@ class Upload_file extends CI_Controller {
 	}
 
 	function tambah_data(){
-		$new_name = time() .'_'. $_FILES["nama_file"]['name'];
 		$config['upload_path']          = FCPATH . 'assets/upload/';
 		$config['allowed_types']        = 'gif|jpg|jpeg|png';
-		$config['file_name']            = $new_name;
+		// $config['file_name']            = $filename;
 		$config['overwrite']            = true;
 		$config['max_size']             = 2024; // 1MB
 		$config['max_width']            = 2080;
 		$config['max_height']           = 2080;
-		// $config['encrypt_name'] 		= TRUE;
+		$config['encrypt_name'] 		= TRUE;
 
 		$this->load->library('upload', $config);
 		if ($this->upload->do_upload("nama_file")) {
@@ -57,6 +56,23 @@ class Upload_file extends CI_Controller {
 		}else{
 			$error = array('error' => $this->upload->display_errors());
 		}
+	}
+
+	public function tampil_data_id()
+	{
+		$id = $this->input->post('id');
+		$data = $this->mu->get_dataID($id);
+		echo json_encode($data);
+	}
+
+	function delete_data() {
+		$id = $this->input->post('id');
+		$nama_file = $this->input->post('nama_file');
+		$data = $this->mu->delete_data($id, $nama_file);
+
+		unlink("./assets/upload/" . $nama_file);
+		
+		echo json_encode($data);
 	}
 	
 
